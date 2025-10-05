@@ -1,39 +1,112 @@
-<!-- This is the main template for the application -->
 <div class="game-board">
   <!-- Player 1 Area (Top) -->
   <div id="player-top" class="player-area-top">
     <div class="card-container-horizontal">
-      <div class="card player-1-card" *ngFor="let card of playersCards()[0];"></div>
+      <div class="card-wrapper player-1-card" *ngFor="let card of playersCards()[0]">
+        <div
+          class="card"
+          [style.background-color]="card.empire.color"
+          [style.border-color]="card.empire.color"
+        >
+          <div class="card-content">
+            <span class="card-value">{{ card.value }}</span>
+            <!-- Using *ngIf instead of @if -->
+            <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Player 2 Area (Left) -->
   <div id="player-left" class="player-area-left">
     <div class="card-container-vertical">
-      <div class="card player-2-card" *ngFor="let card of playersCards()[1];"></div>
+      <div class="card-wrapper player-2-card" *ngFor="let card of playersCards()[3]">
+        <div
+          class="card"
+          [style.background-color]="card.empire.color"
+          [style.border-color]="card.empire.color"
+        >
+          <div class="card-content">
+            <span class="card-value">{{ card.value }}</span>
+            <!-- Using *ngIf instead of @if -->
+            <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Center Area with Image -->
+  <!-- Center Area with Image and Empire Decks -->
   <div id="center-area">
-    <div id="empire-card-wrapper"></div>
-    <div class="d-flex flex-column justify-between h-100">
-      <img src="assets/background.jpg" alt="Center Image" class="center-image">
-      <div id="control-area"></div>
+    <!-- EMPIRE DECK WRAPPER (NEW CONTENT) -->
+    <div id="empire-card-wrapper">
+      <div id="empire-decks-container">
+        <div class="empire-deck" *ngFor="let deck of groupedEmpireDecks">
+          <div
+            class="card empire-card"
+            *ngFor="let card of deck.cards; let i = index"
+            [style.background-color]="deck.empire.color"
+            [style.border-color]="deck.empire.color"
+            [style.transform]="'translateX(' + (i * 5) + 'px)'"
+            [style.zIndex]="i + 1"
+            (click)="addCardToPlayer(card)"
+          >
+            <div class="card-content">
+              <span class="card-value">{{ card.value }}</span>
+              <!-- Using *ngIf instead of @if -->
+              <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- IMAGE AND CONTROL WRAPPER -->
+    <div class="d-flex flex-column justify-between h-100 image-control-wrapper">
+      <img src="assets/background.jpg" alt="Center Image" class="center-image"/>
+      <div id="control-area">
+        <button (click)="resetGame()" class="reset-button">
+          Reset Hands
+        </button>
+      </div>
     </div>
   </div>
 
   <!-- Player 3 Area (Right) -->
   <div id="player-right" class="player-area-right">
     <div class="card-container-vertical">
-      <div class="card player-3-card" *ngFor="let card of playersCards()[2];"></div>
+      <div class="card-wrapper player-3-card" *ngFor="let card of playersCards()[1]">
+        <div
+          class="card"
+          [style.background-color]="card.empire.color"
+          [style.border-color]="card.empire.color"
+        >
+          <div class="card-content">
+            <span class="card-value">{{ card.value }}</span>
+            <!-- Using *ngIf instead of @if -->
+            <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Player 4 Area (Bottom) -->
   <div id="player-bottom" class="player-area-bottom">
     <div class="card-container-horizontal">
-      <div class="card player-4-card" *ngFor="let card of playersCards()[3];"></div>
+      <div class="card-wrapper player-4-card" *ngFor="let card of playersCards()[2]">
+        <div
+          class="card"
+          [style.background-color]="card.empire.color"
+          [style.border-color]="card.empire.color"
+        >
+          <div class="card-content">
+            <span class="card-value">{{ card.value }}</span>
+            <!-- Using *ngIf instead of @if -->
+            <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

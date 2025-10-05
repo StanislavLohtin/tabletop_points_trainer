@@ -11,6 +11,11 @@ export interface Card {
   letter?: 'A' | 'B' | 'C' | null;
 }
 
+export interface EmpireDeck {
+  empire: Empire;
+  cards: Card[];
+}
+
 export const EMPIRES: Empire[]  = [
   {
     id: 0,
