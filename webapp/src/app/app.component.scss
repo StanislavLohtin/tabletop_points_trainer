@@ -1,0 +1,99 @@
+/* General Host Styles */
+:host {
+  display: block;
+  height: 100vh;
+  background-color: #1a202c; /* bg-gray-900 */
+  color: white;
+  font-family: 'Inter', sans-serif;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Main Game Board Grid */
+.game-board {
+  width: 100%;
+  max-width: 100rem; /* max-w-7xl */
+  height: 100%;
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 150px 1fr 150px;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+/* Player Area Alignment */
+.player-area-top { grid-column: 2; grid-row: 1; display: flex; justify-content: center; align-items: flex-end; }
+.player-area-left { grid-column: 1; grid-row: 2; display: flex; justify-content: flex-end; align-items: center; }
+.player-area-right { grid-column: 3; grid-row: 2; display: flex; justify-content: flex-start; align-items: center; }
+.player-area-bottom { grid-column: 2; grid-row: 3; display: flex; justify-content: center; align-items: flex-start; }
+
+/* Card Containers */
+.card-container-horizontal { display: flex; gap: 0.5rem; }
+.card-container-vertical { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* Base Card Styles */
+.card, .card-vertical {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.card {
+  width: 65px;
+  height: 100px;
+}
+.card-vertical {
+  width: 40px;
+  height: 100px;
+}
+
+/* Player Specific Card Colors */
+.player-1-card { background-color: #4299e130; border: 2px solid #63b3ed; } /* blue-500, blue-300 */
+.player-2-card { background-color: #48bb7830; border: 2px solid #68d391; } /* green-500, green-300 */
+.player-3-card { background-color: #f5656530; border: 2px solid #fc8181; } /* red-500, red-300 */
+.player-4-card { background-color: #ecc94b30; border: 2px solid #f6e05e; } /* yellow-500, yellow-300 */
+
+
+/* Center Area */
+#center-area {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800 with opacity */
+  border-radius: 1rem;
+  border: 2px solid #4a5568; /* border-gray-700 */
+  padding: 1rem;
+}
+.center-image {
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+#control-area {
+  max-width: 100%;
+  min-height: 70px;
+  background-color: #00000020;
+}
+
+#empire-card-wrapper {
+  min-width: 150px;
+  background-color: #00000020;
+  height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.h-100 {
+  height: 100%;
+}

@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>App</title>
+  <title>Angular Card Game</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    /* Basic reset */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+<!-- This is where the Angular app will be mounted -->
+<app-root></app-root>
+<!-- The main.ts file will be injected here by the build process -->
+<script type="module" src="main.ts"></script>
 </body>
 </html>
