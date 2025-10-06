@@ -94,6 +94,11 @@ export const CARDS: Card[]  = [
     empire: EMPIRES[0],
     value: 3,
   },
+  {
+    id: 49,
+    empire: EMPIRES[0],
+    value: 1,
+  },
 
   // --- Habsburg (empires[1]) ---
   {
@@ -128,6 +133,11 @@ export const CARDS: Card[]  = [
     id: 13,
     empire: EMPIRES[1],
     value: 3,
+  },
+  {
+    id: 50,
+    empire: EMPIRES[1],
+    value: 1,
   },
 
   // --- Ottoman (empires[2]) ---
@@ -169,6 +179,11 @@ export const CARDS: Card[]  = [
     empire: EMPIRES[2],
     value: 3,
   },
+  {
+    id: 52,
+    empire: EMPIRES[2],
+    value: 1,
+  },
 
   // --- Spain (empires[3]) ---
   {
@@ -208,6 +223,11 @@ export const CARDS: Card[]  = [
     id: 27,
     empire: EMPIRES[3],
     value: 3,
+  },
+  {
+    id: 53,
+    empire: EMPIRES[3],
+    value: 1,
   },
 
   // --- France (empires[4]) ---
@@ -249,6 +269,11 @@ export const CARDS: Card[]  = [
     empire: EMPIRES[4],
     value: 3,
   },
+  {
+    id: 54,
+    empire: EMPIRES[4],
+    value: 1,
+  },
 
   // --- Russia (empires[5]) ---
   {
@@ -289,6 +314,11 @@ export const CARDS: Card[]  = [
     empire: EMPIRES[5],
     value: 3,
   },
+  {
+    id: 55,
+    empire: EMPIRES[5],
+    value: 1,
+  },
 
   // --- UK (empires[6]) ---
   {
@@ -328,6 +358,11 @@ export const CARDS: Card[]  = [
     id: 48,
     empire: EMPIRES[6],
     value: 3,
+  },
+  {
+    id: 56,
+    empire: EMPIRES[6],
+    value: 1,
   },
 ]
 export interface Layout {

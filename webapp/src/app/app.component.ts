@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   addCardToPlayer(card: Card) {
-    if (this.playerTracker >= 24) {
+    if (this.playerTracker >= 28) {
       return;
     }
     this.playersCards()[this.playerTracker % 4].push(card);
