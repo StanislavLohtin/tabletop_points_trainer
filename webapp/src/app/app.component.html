@@ -2,6 +2,8 @@
   <!-- Player 1 Area (Top) -->
   <div id="player-top" class="player-area-top">
     <div class="card-container-horizontal">
+      <h3> Player 1</h3>
+      <h4 *ngIf="showingPoints"> VP: {{ calculatePointsForPlayer(0) }}</h4>
       <div class="card-wrapper player-1-card" *ngFor="let card of playersCards()[0]">
         <div
           class="card"
@@ -10,7 +12,6 @@
         >
           <div class="card-content">
             <span class="card-value">{{ card.value }}</span>
-            <!-- Using *ngIf instead of @if -->
             <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
           </div>
         </div>
@@ -21,6 +22,8 @@
   <!-- Player 2 Area (Left) -->
   <div id="player-left" class="player-area-left">
     <div class="card-container-vertical">
+      <h3> Player 4</h3>
+      <h4 *ngIf="showingPoints"> VP: {{ calculatePointsForPlayer(3) }}</h4>
       <div class="card-wrapper player-2-card" *ngFor="let card of playersCards()[3]">
         <div
           class="card"
@@ -29,7 +32,6 @@
         >
           <div class="card-content">
             <span class="card-value">{{ card.value }}</span>
-            <!-- Using *ngIf instead of @if -->
             <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
           </div>
         </div>
@@ -39,7 +41,7 @@
 
   <!-- Center Area with Image and Empire Decks -->
   <div id="center-area">
-    <!-- EMPIRE DECK WRAPPER (NEW CONTENT) -->
+    <!-- EMPIRE DECK WRAPPER -->
     <div id="empire-card-wrapper">
       <div id="empire-decks-container">
         <div class="empire-deck" *ngFor="let deck of groupedEmpireDecks">
@@ -54,7 +56,6 @@
           >
             <div class="card-content">
               <span class="card-value">{{ card.value }}</span>
-              <!-- Using *ngIf instead of @if -->
               <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
             </div>
           </div>
@@ -64,9 +65,36 @@
     <!-- IMAGE AND CONTROL WRAPPER -->
     <div class="d-flex flex-column justify-between h-100 image-control-wrapper">
       <img src="assets/background.jpg" alt="Center Image" class="center-image"/>
+
+      <!-- NEW: Empire Order Control -->
+      <div id="empire-order-container" (dragover)="onDragOver($event)">
+        <div
+          *ngFor="let empire of orderedEmpires(); let i = index"
+          class="empire-order-item"
+          [draggable]="true"
+          (dragstart)="onDragStart(i)"
+          (drop)="onDrop(i)"
+          [class.dragging]="draggedEmpireIndex() === i"
+        >
+          <div class="empire-order-number">{{ i + 1 }}</div>
+          <div class="empire-order-color" [style.background-color]="empire.color"></div>
+          <div class="empire-order-name">{{ empire.name }}</div>
+        </div>
+      </div>
+
       <div id="control-area">
-        <button (click)="resetGame()" class="reset-button">
+        <select class="control-select" (change)="applyLayout($event)">
+          <option value="none" selected disabled>Select a Layout...</option>
+          <option [value]="layout.id" *ngFor="let layout of layouts">{{ layout.id }}</option>
+        </select>
+        <button (click)="resetGame()" class="control-button">
           Reset Hands
+        </button>
+        <button (click)="resetEmpireOrder()" class="control-button">
+          Reset Order
+        </button>
+        <button (click)="togglePoints()" class="control-button">
+          {{ showingPoints ? 'Hide' : 'Show' }} Points
         </button>
       </div>
     </div>
@@ -75,6 +103,8 @@
   <!-- Player 3 Area (Right) -->
   <div id="player-right" class="player-area-right">
     <div class="card-container-vertical">
+      <h3> Player 2</h3>
+      <h4 *ngIf="showingPoints"> VP: {{ calculatePointsForPlayer(1) }}</h4>
       <div class="card-wrapper player-3-card" *ngFor="let card of playersCards()[1]">
         <div
           class="card"
@@ -83,7 +113,6 @@
         >
           <div class="card-content">
             <span class="card-value">{{ card.value }}</span>
-            <!-- Using *ngIf instead of @if -->
             <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
           </div>
         </div>
@@ -94,6 +123,8 @@
   <!-- Player 4 Area (Bottom) -->
   <div id="player-bottom" class="player-area-bottom">
     <div class="card-container-horizontal">
+      <h3> Player 3</h3>
+      <h4 *ngIf="showingPoints"> VP: {{ calculatePointsForPlayer(2) }}</h4>
       <div class="card-wrapper player-4-card" *ngFor="let card of playersCards()[2]">
         <div
           class="card"
@@ -102,7 +133,6 @@
         >
           <div class="card-content">
             <span class="card-value">{{ card.value }}</span>
-            <!-- Using *ngIf instead of @if -->
             <span class="card-letter" *ngIf="card.letter">{{ card.letter }}</span>
           </div>
         </div>

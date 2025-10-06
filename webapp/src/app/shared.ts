@@ -330,3 +330,124 @@ export const CARDS: Card[]  = [
     value: 3,
   },
 ]
+export interface Layout {
+  id: number;
+  distribution: {
+    player: number;
+    cards: Card[];
+  }[];
+}
+
+export const LAYOUTS: Layout[] = [
+  {
+    id: 1,
+    distribution: [
+      {
+        player: 1,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[2] && c.letter === 'A')!, // green A (Ottoman)
+          CARDS.find(c => c.empire === EMPIRES[3] && c.letter === 'B')!, // white B (Spain)
+          CARDS.find(c => c.empire === EMPIRES[1] && c.letter === 'C')!  // yellow C (Habsburg)
+        ]
+      },
+      {
+        player: 2,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[4] && c.letter === 'A')!, // blue A (France)
+          CARDS.find(c => c.empire === EMPIRES[0] && c.letter === 'B')!, // black B (Prussia)
+          CARDS.find(c => c.empire === EMPIRES[6] && c.letter === 'C')!  // red C (UK)
+        ]
+      },
+      {
+        player: 3,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[5] && c.letter === 'A')!, // pink A (Russia)
+          CARDS.find(c => c.empire === EMPIRES[1] && c.letter === 'B')!, // yellow B (Habsburg)
+          CARDS.find(c => c.empire === EMPIRES[2] && c.letter === 'C')!  // green C (Ottoman)
+        ]
+      },
+      {
+        player: 4,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[6] && c.letter === 'A')!, // red A (UK)
+          CARDS.find(c => c.empire === EMPIRES[4] && c.letter === 'B')!, // blue B (France)
+          CARDS.find(c => c.empire === EMPIRES[5] && c.letter === 'C')!  // pink C (Russia)
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    distribution: [
+      {
+        player: 1,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[4] && c.letter === 'A')!, // blue A (France)
+          CARDS.find(c => c.empire === EMPIRES[1] && c.letter === 'B')!, // yellow B (Habsburg)
+          CARDS.find(c => c.empire === EMPIRES[6] && c.letter === 'C')!  // red C (UK)
+        ]
+      },
+      {
+        player: 2,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[5] && c.letter === 'A')!, // pink A (Russia)
+          CARDS.find(c => c.empire === EMPIRES[6] && c.letter === 'B')!, // red B (UK)
+          CARDS.find(c => c.empire === EMPIRES[0] && c.letter === 'C')!  // black C (Prussia)
+        ]
+      },
+      {
+        player: 3,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[0] && c.letter === 'A')!, // black A (Prussia)
+          CARDS.find(c => c.empire === EMPIRES[2] && c.letter === 'B')!, // green B (Ottoman)
+          CARDS.find(c => c.empire === EMPIRES[3] && c.letter === 'C')!  // white C (Spain)
+        ]
+      },
+      {
+        player: 4,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[3] && c.letter === 'A')!, // white A (Spain)
+          CARDS.find(c => c.empire === EMPIRES[4] && c.letter === 'B')!, // blue B (France)
+          CARDS.find(c => c.empire === EMPIRES[1] && c.letter === 'C')!  // yellow C (Habsburg)
+        ]
+      }
+    ]
+  },
+  {
+    id: 3,
+    distribution: [
+      {
+        player: 1,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[3] && c.letter === 'A')!, // white A (Spain)
+          CARDS.find(c => c.empire === EMPIRES[0] && c.letter === 'B')!, // black B (Prussia)
+          CARDS.find(c => c.empire === EMPIRES[1] && c.letter === 'C')!  // yellow C (Habsburg)
+        ]
+      },
+      {
+        player: 2,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[2] && c.letter === 'A')!, // green A (Ottoman)
+          CARDS.find(c => c.empire === EMPIRES[6] && c.letter === 'B')!, // red B (UK)
+          CARDS.find(c => c.empire === EMPIRES[3] && c.letter === 'C')!  // white C (Spain)
+        ]
+      },
+      {
+        player: 3,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[1] && c.letter === 'A')!, // yellow A (Habsburg)
+          CARDS.find(c => c.empire === EMPIRES[5] && c.letter === 'B')!, // pink B (Russia)
+          CARDS.find(c => c.empire === EMPIRES[4] && c.letter === 'C')!  // blue C (France)
+        ]
+      },
+      {
+        player: 4,
+        cards: [
+          CARDS.find(c => c.empire === EMPIRES[4] && c.letter === 'A')!, // blue A (France)
+          CARDS.find(c => c.empire === EMPIRES[2] && c.letter === 'B')!, // green B (Ottoman)
+          CARDS.find(c => c.empire === EMPIRES[0] && c.letter === 'C')!  // black C (Prussia)
+        ]
+      }
+    ]
+  }
+];
